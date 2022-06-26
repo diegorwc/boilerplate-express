@@ -12,6 +12,14 @@ app.get('/', (req, res) => {
 
 app.use('/public', express.static(__dirname + '/public'))
 
+const obj = {
+    "message": "Hello json"
+}
+
+app.get('/json', (req, res) => {
+    res.json(obj)
+})
+
 
 
 
