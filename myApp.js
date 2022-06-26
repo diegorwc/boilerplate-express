@@ -21,6 +21,7 @@ const obj = {
 app.get('/json', (req, res) => {
     if(process.env.MESSAGE_STYLE === 'uppercase') {
         res.send({"message": obj.message.toUpperCase()})
+    res.send(obj)
     }
 })
 
