@@ -11,6 +11,8 @@ console.log("Hello World!")
 
 // app.use('/', )
 
+app.use('/', bodyParser.urlencoded({extended: false}))
+
 app.use('/', function (req, res, next) {
     console.log(`${req.method} ${req.path} - ${req.ip}`)
     next()
@@ -48,9 +50,9 @@ app.get('/:word/echo', (req, res) => {
     res.send({"echo": req.params.word})
 })
 
-app.route('/name').get( (req, res) => {    
+app.get('/name', (req, res) => {    
     res.send({"name": `${req.query.first} ${req.query.last}`})
-}).post(() => {app.use(bodyParser.urlencoded({extended: false}))})
+})
 
 
 
