@@ -50,7 +50,7 @@ app.get('/:word/echo', (req, res) => {
 
 app.route('/name').get( (req, res) => {    
     res.send({"name": `${req.query.first} ${req.query.last}`})
-}).post(() => {bodyParser.urlencoded({extended: false})})
+}).post(() => {app.use(bodyParser.urlencoded({extended: false}))})
 
 
 
