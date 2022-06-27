@@ -8,6 +8,13 @@ console.log("Hello World!")
 //     res.send('Hello Express')
 // })
 
+// app.use('/', )
+
+app.use('/', function (req, res, next) {
+    console.log(`${req.method} ${req.path} - ${req.ip}`)
+    next()
+})
+
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/views/index.html')    
 })
@@ -24,6 +31,8 @@ app.get('/json', (req, res) => {
     }
     res.send(obj)
 })
+
+
 
 console.log(process.env.MESSAGE_STYLE)
 
