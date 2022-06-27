@@ -13,6 +13,7 @@ console.log("Hello World!")
 
 app.use('/', bodyParser.urlencoded({extended: false}))
 
+
 app.use('/', function (req, res, next) {
     console.log(`${req.method} ${req.path} - ${req.ip}`)
     next()
@@ -54,7 +55,9 @@ app.get('/name', (req, res) => {
     res.send({"name": `${req.query.first} ${req.query.last}`})
 })
 
-
+app.post('/name', (req, res) => {
+    res.send({"name": `${req.body.first} ${req.body.last}`});
+})
 
 
 
